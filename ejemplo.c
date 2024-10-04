@@ -3,5 +3,7 @@
 
 void display(){
   char** gwhiteSquare = repeatH((whiteSquare),7);
-  interpreter(gwhiteSquare);
+  char** gknight=reverse( knight);
+  char** superImpose(gwhiteSquare,gknight);
+  interpreter(superImpose);
 }
