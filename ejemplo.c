@@ -4,6 +4,6 @@
 void display(){
   char** gwhiteSquare = repeatH((whiteSquare),7);
   char** gknight=reverse( knight);
-  char** superImpose(gwhiteSquare,gknight);
-  interpreter(superImpose);
+  char** s=superImpose(gwhiteSquare,gknight);
+  interpreter(s);
 }
