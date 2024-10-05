@@ -8,7 +8,7 @@ void display(){
     
     char** wlineSquare = repeatH(wpairSquare,4);
     char** blineSquare = repeatH(bpairSquare,4);
-    char** upSquare= up(whiteSquare,blackSquare);
+    char** uplineSquare= up(blineSquare,wlineSquare);
 
-    interpreter(upSquare);
+    interpreter(uplineSquare);
 } 
