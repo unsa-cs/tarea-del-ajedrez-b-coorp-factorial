@@ -1,6 +1,9 @@
 #include "chess.h"
 #include "figures.h"
 void display(){
-    char** gwhiteSquare = repeatH(join(reverse(whiteSquare),whiteSquare),4);
-    interpreter(gwhiteSquare);
+    char** blackSquare = reverse(whiteSquare);
+    char** pairSquare = join(blackSquare,whiteSquare);
+    char** lineSquare = repeatH(pairSquare,4);
+    interpreter(lineSquare);
 }
+
