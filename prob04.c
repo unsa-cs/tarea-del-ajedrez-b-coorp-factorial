@@ -2,11 +2,8 @@
 #include "figures.h"
 void display(){
     char** blackSquare = reverse(whiteSquare);
-    /* 
-    char** pawn0=superImpose(pawn,whiteSquare);
-    char** pawn1=superImpose(pawn,blackSquare);
-    */
-    char** table=join(whiteSquare,blackSquare);
+
+    char** table=join(blackSquare, whiteSquare);
     char** table1=repeatH(table,4);
 
     char** whiteFigures[]={rook, knight, bishop,queen, king, bishop, knight, rook };
@@ -14,10 +11,9 @@ void display(){
 
     for(int i = 1; i<8; i++) {
         fichas= join(fichas,whiteFigures[i]);
-       /* char** table=join(whiteSquare,blackSquare);
-        char** table1=repeatH(table,4);*/
- 
     }
 
-    interpreter(fichas);
+    char** casillasFichas= superImpose(fichas,table1);
+
+    interpreter(casillasFichas);
 }
