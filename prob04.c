@@ -2,12 +2,13 @@
 #include "figures.h"
 void display(){
     char** blackSquare = reverse(whiteSquare);
-    
+    /* 
     char** pawn0=superImpose(pawn,whiteSquare);
     char** pawn1=superImpose(pawn,blackSquare);
-    
-    char** table=join(pawn1,pawn0);
+    */
+    char** table=join(whiteSquare,blackSquare);
     char** table1=repeatH(table,4);
 
-    interpreter(table1);
+    char** whiteFigures[]={rook, knight, bishop,queen, king, bishop, knight, rook };
+    interpreter( whiteFigures[0]);
 }
