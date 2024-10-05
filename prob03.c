@@ -10,5 +10,7 @@ void display(){
     char** blineSquare = repeatH(bpairSquare,4);
     char** uplineSquare= up(blineSquare,wlineSquare);
 
-    interpreter(uplineSquare);
+    char** table=repeatV(uplineSquare, 2);
+
+    interpreter(table);
 } 
