@@ -13,16 +13,20 @@ char** createTablero (int fil, int col){
     return tablero;
 }
 
-
 void display(){
-    char** upperTable = createTablero(2,2);
-    char** downTable = createTablero(2,2);
+    char** upperTable = createTablero(1,1);
+    char** downTable = createTablero(1,1);
      
-    char** blacknight = reverse(knight);
-    char** wknights = repeatH(rotateL(knight),2); 
-    char** bknights = repeatH(rotateR(blacknight),2);
+    char** wknight1 = rotateL(knight);
+    char** wknight2 = rotateL(wknight1);
+    char** wknights[]={wknight1, wknight2};
+    char** flinefichas=wknights[0];
+    for(int i = 1; i < 2; i++) {
+        flinefichas = join(flinefichas,wknights[i]);
+    }
+    char** bknights = reverse(flipV(flinefichas));
    
-    char** wtableroFichas = superImpose(wknights,upperTable);
+    char** wtableroFichas = superImpose(flinefichas,upperTable);
     char** btableroFichas = superImpose(bknights,downTable);
 
     char** table = up(wtableroFichas,btableroFichas);
