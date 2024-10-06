@@ -1,21 +1,11 @@
 #include "chess.h"
 #include "figures.h"
 #include <stdlib.h>
- 
-char** createTablero (int fil, int col){
- 
-    char** blackSquare = reverse(whiteSquare);
-    char** bpatron = join(blackSquare, whiteSquare);
-    char** wpatron = join(whiteSquare, blackSquare);
- 
-    char** fourpatron = up(bpatron,wpatron);
-    char** tablero = repeatH(repeatV(fourpatron,fil),col);
-    return tablero;
-}
 
 void display(){
-    char** upperTable = createTablero(1,1);
-    char** downTable = reverse(createTablero(1,1));
+    char** bSquare=reverse(whiteSquare);
+    char** upperTable = join(bSquare,whiteSquare);
+    char** downTable = reverse(upperTable);
      
     char** wknight1 = rotateL(knight);
     char** wknight2 = rotateL(wknight1);
@@ -25,7 +15,7 @@ void display(){
         flinefichas = join(flinefichas,wknights[i]);
     }
     char** bknights = reverse(flipV(flinefichas));
-   
+
     char** wtableroFichas = superImpose(flinefichas,upperTable);
     char** btableroFichas = superImpose(bknights,downTable);
 
