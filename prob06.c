@@ -1,13 +1,19 @@
 #include "chess.h"
 #include "figures.h"
-void display(){
+
+char** createTablero (int fil, int col){
 
     char** blackSquare = reverse(whiteSquare);
     char** bpatron=join(blackSquare, whiteSquare);
     char** wpatron=join(whiteSquare, blackSquare);
-
+    
     char** fourpatron=up(bpatron,wpatron);
-    char** tablero=repeatH(repeatV(fourpatron,4),4);
+    char** tablero=repeatH(repeatV(fourpatron,fil),col);
+    return tablero;
+}
+void display(){
+    
+    char** middleTable= createTablero(2,4);
 
     char** figures[]={rook, knight, bishop, queen, king, bishop, knight, rook};
     char** fichas=figures[0];
@@ -17,7 +23,7 @@ void display(){
     }
     char** gpawn= repeatH(pawn,8);
     char** upfichas=up(fichas,gpawn);
-    char** tableroFichas= superImpose(upfichas,tablero);
-    interpreter(tableroFichas);
+  //  char** tableroFichas= superImpose(upfichas,tablero);
+    interpreter(middleTable);
 }
 
