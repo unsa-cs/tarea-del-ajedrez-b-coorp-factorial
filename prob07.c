@@ -8,12 +8,38 @@ char** createTablero (int fil, int col){
     char** wpatron = join(whiteSquare, blackSquare);
  
     char** fourpatron = up(bpatron,wpatron);
-    char** tablero[][] = repeatH(repeatV(fourpatron,fil),col);
+    char** tablero = repeatH(repeatV(fourpatron,fil),col);
     return tablero;
+}
+
+char** create(int fi,int co){
+    char** blackSquare = reverse(whiteSquare);
+    char** tab[fi][co];
+    for(int i=0;i<fi;i++){
+        for(int j=0;j<co;j++){
+            if(i%2==0){
+                if(j%2==0){
+                    tab[i][j]=blackSquare;
+                }
+                else{
+                    tab[i][j]=whiteSquare;
+                }
+            }
+            else{
+                if(j%2==0){
+                    tab[i][j]=whiteSquare;
+                }
+                else{
+                    tab[i][j]=blackSquare;
+                }
+            }
+        }
+    }
+    return tab[fi][co];
 }
 void display(){
     char** upperTable = createTablero(1,4);
-    char** middleTable[][] = createTablero(2,4);
+    char** middleTable= create(2,4);
     char** downTable = createTablero(1,4);
 
     char** figures[] = {rook, knight, bishop, queen, king, bishop, knight, rook};
@@ -34,7 +60,5 @@ void display(){
     
     char** voltear = rotateL(table);
 
-    interpreter(*middleTable[0][0]);
+    interpreter(middleTable[1][2]);
 }
- 
-
