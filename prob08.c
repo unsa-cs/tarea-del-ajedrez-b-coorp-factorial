@@ -20,14 +20,14 @@ void display(){
     char** bq = superImpose(reverse(queen),b);
     char** bki = superImpose(reverse(king),b);
 
-    char** fila1[]={bk,w,b,w,bk,w,b,w};
-    char** fila2[]={w,b,w,b,w,b,w,b};
-    char** fila3[]={b,w,bb,w,b,w,b,w};
-    char** fila4[]={w,b,w,b,w,b,w,b};
-    char** fila5[]={b,w,b,w,b,w,b,w};
-    char** fila6[]={w,b,w,b,w,b,w,b};
-    char** fila7[]={b,w,b,w,b,w,b,w};
-    char** fila8[]={wk,b,w,b,wk,b,w,b};
+    char** fila1[]={b,w,bq,w,b,w,b,w};
+    char** fila2[]={w,b,w,b,w,bq,w,b};
+    char** fila3[]={b,w,b,w,b,w,b,wq};
+    char** fila4[]={w,bq,w,b,w,b,w,b};
+    char** fila5[]={b,w,b,wq,b,w,b,w};
+    char** fila6[]={wq,b,w,b,w,b,w,b};
+    char** fila7[]={b,w,b,w,b,w,bq,w};
+    char** fila8[]={w,b,w,b,wq,b,w,b};
 
     char** fill1 = fila1[0];
     char** fill2 = fila2[0];
