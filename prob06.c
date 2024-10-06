@@ -12,8 +12,9 @@ char** createTablero (int fil, int col){
     return tablero;
 }
 void display(){
-    
-    char** middleTable= createTablero(2,4);
+    char** upperTable = createTablero(1,4);
+    char** middleTable = createTablero(2,4);
+    char** lowerTable = createTablero(1,4);
 
     char** figures[]={rook, knight, bishop, queen, king, bishop, knight, rook};
     char** fichas=figures[0];
@@ -23,7 +24,9 @@ void display(){
     }
     char** gpawn= repeatH(pawn,8);
     char** upfichas=up(fichas,gpawn);
-  //  char** tableroFichas= superImpose(upfichas,tablero);
-    interpreter(middleTable);
+
+    char** wtableroFichas= superImpose(upfichas,upperTable);
+    char** table=up(wtableroFichas, middleTable);
+    interpreter(table);
 }
 
