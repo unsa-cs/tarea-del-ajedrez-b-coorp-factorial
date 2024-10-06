@@ -24,9 +24,10 @@ void display(){
     }
     char** gpawn= repeatH(pawn,8);
     char** upfichas=up(fichas,gpawn);
+    char** downfichas=reverse(up(gpawn,fichas));
 
     char** wtableroFichas= superImpose(upfichas,upperTable);
     char** table=up(wtableroFichas, middleTable);
-    interpreter(table);
+    interpreter(downfichas);
 }
 
