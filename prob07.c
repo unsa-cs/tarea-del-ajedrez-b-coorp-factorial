@@ -15,10 +15,11 @@ char** createTablero (int fil, int col){
 
 char** create(int fi,int co){
     char** blackSquare = reverse(whiteSquare);
-    char*** tab= malloc(sizeof(char*)*fi);
+    char** **tab;
+    tab=(char** **) malloc(sizeof(char***)*fi);
     for(int i=0;i<fi;i++){
         for(int j=0;j<co;j++){
-            tab[i]= malloc(sizeof(char*)*co);
+            tab[i]=(char***)malloc(sizeof(char**)*co);
             if(i%2==0){
                 if(j%2==0){
                     tab[i][j]=blackSquare;
@@ -37,13 +38,14 @@ char** create(int fi,int co){
             }
         }
     }
-    return tab;
+    return **tab;
 }
+
 void display(){
     char** upperTable = createTablero(1,4);
     char** middleTable= create(2,4);
     char** downTable = createTablero(1,4);
-
+/*
     char** figures[] = {rook, knight, bishop, queen, king, bishop, knight, rook};
     char** fichas = figures[0];
     
@@ -61,6 +63,7 @@ void display(){
     char** table = up(middleupTable,btableroFichas);
     
     char** voltear = rotateL(table);
-
-    interpreter(middleTable[0]);
+*/
+    interpreter(middleTable);
+    free(middleTable);
 }
