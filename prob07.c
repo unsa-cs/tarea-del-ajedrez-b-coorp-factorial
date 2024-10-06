@@ -8,12 +8,12 @@ char** createTablero (int fil, int col){
     char** wpatron = join(whiteSquare, blackSquare);
  
     char** fourpatron = up(bpatron,wpatron);
-    char** tablero = repeatH(repeatV(fourpatron,fil),col);
+    char** tablero[][] = repeatH(repeatV(fourpatron,fil),col);
     return tablero;
 }
 void display(){
     char** upperTable = createTablero(1,4);
-    char** middleTable = createTablero(2,4);
+    char** middleTable[][] = createTablero(2,4);
     char** downTable = createTablero(1,4);
 
     char** figures[] = {rook, knight, bishop, queen, king, bishop, knight, rook};
@@ -34,7 +34,7 @@ void display(){
     
     char** voltear = rotateL(table);
 
-    interpreter(voltear);
+    interpreter(*middleTable[0][0]);
 }
  
 
