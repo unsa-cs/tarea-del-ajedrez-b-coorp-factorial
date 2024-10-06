@@ -15,7 +15,7 @@ char** createTablero (int fil, int col){
 
 void display(){
     char** upperTable = createTablero(1,1);
-    char** downTable = createTablero(1,1);
+    char** downTable = reverse(createTablero(1,1));
      
     char** wknight1 = rotateL(knight);
     char** wknight2 = rotateL(wknight1);
